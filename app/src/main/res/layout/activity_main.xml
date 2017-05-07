@@ -7,58 +7,84 @@
     tools:context="ttraaholt.finalproject.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First Name"
-        android:id="@+id/tvFirstName" />
-
-    <EditText
-        android:id="@+id/editTextFirstName"
+        android:id="@+id/tvFirstNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tvFirstName"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="52dp"
+        android:text="Note #1" />
+
+    <EditText
+        android:id="@+id/editTextFirstNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_below="@+id/tvFirstNote"
+        android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/tvLastName"
+        android:id="@+id/tvSecondNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editTextFirstName"
-        android:text="Last Name" />
+        android:layout_alignEnd="@+id/tvFirstNote"
+        android:layout_below="@+id/editTextFirstNote"
+        android:layout_marginTop="25dp"
+        android:text="Note #2" />
 
     <EditText
-        android:id="@+id/editTextLastName"
+        android:id="@+id/editTextSecondNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editTextFirstName"
-        android:layout_below="@+id/tvLastName"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_below="@+id/tvSecondNote"
+        android:layout_alignStart="@+id/tvSecondNote" />
 
     <Spinner
-        android:id="@+id/spinnerGender"
+        android:id="@+id/spinnerDay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextLastName"
-        android:layout_centerHorizontal="true"
-        android:entries="@array/gender" />
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:entries="@array/dayOfWeek" />
 
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/spinnerGender"
-        android:text="Submit" />
+        android:text="Submit"
+        android:layout_alignBaseline="@+id/buttonSignOut"
+        android:layout_alignBottom="@+id/buttonSignOut"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/buttonSignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerGender"
-        android:layout_toEndOf="@+id/buttonSubmit"
-        android:text="Sign Out" />
+        android:text="Sign Out"
+        android:layout_below="@+id/spinnerDay"
+        android:layout_marginTop="48dp"
+        android:layout_alignEnd="@+id/editTextSecondNote" />
+
+    <TextView
+        android:id="@+id/textViewDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Day of the week"
+        android:layout_above="@+id/spinnerDay"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Create a Daily Note Below"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 </RelativeLayout>
