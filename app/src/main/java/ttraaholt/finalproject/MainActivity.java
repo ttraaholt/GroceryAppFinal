@@ -8,36 +8,30 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import org.w3c.dom.Text;
-
 public class MainActivity extends AppCompatActivity {
 
-    EditText etFirstName;
-    EditText etLastName;
+    EditText etFirstNote;
     Button buttonSubmit;
     Button buttonSignOut;
-    Spinner spinnerGender;
-
+    Spinner spinnerDay;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        spinnerGender = (Spinner) findViewById(R.id.spinnerGender);
-        etFirstName = (EditText) findViewById(R.id.editTextFirstName);
-        etLastName = (EditText) findViewById(R.id.editTextLastName);
+        spinnerDay = (Spinner) findViewById(R.id.spinnerDay);
+        etFirstNote = (EditText) findViewById(R.id.editTextFirstNote);
 
         userAuthentication();
         buttonSubmit();
@@ -68,19 +62,15 @@ public class MainActivity extends AppCompatActivity {
         buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                String firstName = etFirstName.getText().toString();
-                String lastName = etLastName.getText().toString();
-                String spinGender = spinnerGender.getSelectedItem().toString();
-                if (firstName.matches("")) {
-                    Toast.makeText(MainActivity.this, "You did not enter a first name", Toast.LENGTH_SHORT).show();
-                } else if (lastName.matches("")) {
-                    Toast.makeText(MainActivity.this, "You did not enter a last name", Toast.LENGTH_SHORT).show();
+                String firstNote = etFirstNote.getText().toString();
+                String spinDay = spinnerDay.getSelectedItem().toString();
+                if (firstNote.matches("")) {
+                    Toast.makeText(MainActivity.this, "You did not enter a note", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent Intent = new Intent(MainActivity.this, FinalActivity.class);
                     //Attribute the first and last name into an extra and send it with the key "firstName" and "lastName".
-                    Intent.putExtra("firstName",firstName);
-                    Intent.putExtra("lastName",lastName);
-                    Intent.putExtra("spinnerGender",spinGender);
+                    Intent.putExtra("firstNote",firstNote);
+                    Intent.putExtra("spinDay",spinDay);
                     //Start the Intent
                     startActivity(Intent);
                 }
