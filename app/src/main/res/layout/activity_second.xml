@@ -85,14 +85,15 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="If you are having trouble signing in, please send me an email"
-            android:layout_width="284dp"
+            android:text="@string/if_you_are_having_trouble_signing_in_please_send_me_an_email"
+            android:layout_width="305dp"
             android:layout_height="44dp"
             android:id="@+id/textViewEmail"
             tools:layout_editor_absoluteY="120dp"
             tools:layout_editor_absoluteX="124dp"
             android:fontFamily="sans-serif"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:layout_weight="0.17" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fabMail"
@@ -105,6 +106,7 @@
             android:src="@android:drawable/ic_dialog_email"
             tools:layout_editor_absoluteY="150dp"
             tools:layout_editor_absoluteX="294dp"
+            app:layout_anchorGravity="bottom|right|end"
             android:layout_weight="1" />
 
     </LinearLayout>
