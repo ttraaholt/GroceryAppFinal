@@ -1,8 +1,25 @@
 <resources>
     <string name="app_name">FinalProject</string>
-    <string-array name="gender">
-        <item>Male</item>
-        <item>Female</item>
-        <item>Other</item>
+    <string name="create_a_daily_note_below">Create a Daily Note Below</string>
+    <string name="day_of_the_week">Day of the week</string>
+    <string name="note_1">Note #1</string>
+    <string name="note_2">Note #2</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="submit">Submit</string>
+    <string name="new_note">New Note</string>
+    <string name="results">Results</string>
+    <string name="create_user">Create User</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="sign_in_below_or_create_a_new_account">Sign In Below or Create a New Account</string>
+    <string-array name="dayOfWeek">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
     </string-array>
 </resources>
