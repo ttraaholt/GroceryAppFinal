@@ -11,47 +11,40 @@
         android:layout_height="495dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteY="8dp"
+        android:weightSum="1"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Results"
+            android:text="@string/results"
             android:textSize="24sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="16dp" />
 
-        <TextView
-            android:id="@+id/textViewDay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Day"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="33dp" />
-
-        <TextView
-            android:id="@+id/textViewNote1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Note 1"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="50dp" />
-
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="191dp"
+            android:id="@+id/ListViewNote"
+            android:clickable="false"
+            android:drawSelectorOnTop="false" />
 
 
         <Button
             android:id="@+id/buttonNewNote"
             android:layout_width="127dp"
             android:layout_height="wrap_content"
-            android:text="New Note" />
+            android:text="@string/new_note" />
 
         <Button
             android:id="@+id/buttonSignOut"
             android:layout_width="129dp"
             android:layout_height="wrap_content"
-            android:text="SignOut" />
+            android:text="Sign Out"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
