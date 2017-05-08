@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -14,13 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Sign In Below or Create a New Account"
+        android:text="@string/sign_in_below_or_create_a_new_account"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
-        android:text="Email"
+        android:text="@string/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
@@ -30,13 +31,14 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType=""
         android:ems="10"
         android:id="@+id/editTextEmail"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        tools:ignore="LabelFor,TextFields" />
 
     <TextView
-        android:text="Password"
+        android:text="@string/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
@@ -49,7 +51,8 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editTextPassword"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        tools:ignore="LabelFor,TextFields" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -58,19 +61,55 @@
         android:layout_weight="1">
 
         <Button
-            android:text="Login"
+            android:text="@string/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonLogin"
-            android:layout_weight="0.63" />
+            android:layout_weight="0.63"
+            tools:ignore="ButtonStyle,NestedWeights" />
 
         <Button
-            android:text="Create User"
+            android:text="@string/create_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonCreateUser"
-            android:layout_weight="0.46" />
+            android:layout_weight="0.46"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="374dp"
+        android:layout_marginTop="60dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="If you are having trouble signing in, please send me an email"
+            android:layout_width="284dp"
+            android:layout_height="44dp"
+            android:id="@+id/textViewEmail"
+            tools:layout_editor_absoluteY="120dp"
+            tools:layout_editor_absoluteX="124dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            app:elevation="6dp"
+            app:backgroundTint="@android:color/holo_green_light"
+            android:src="@android:drawable/ic_dialog_email"
+            tools:layout_editor_absoluteY="150dp"
+            tools:layout_editor_absoluteX="294dp"
+            android:layout_weight="1" />
 
     </LinearLayout>
 
 </LinearLayout>
+
+
+
