@@ -46,6 +46,19 @@
             android:text="Sign Out"
             tools:ignore="HardcodedText" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editTextCoupon" />
+
+        <Button
+            android:text="Check for coupons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonCoupon" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
