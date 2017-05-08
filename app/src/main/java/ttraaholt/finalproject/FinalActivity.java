@@ -1,12 +1,14 @@
 package ttraaholt.finalproject;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,7 +28,9 @@ public class FinalActivity extends AppCompatActivity {
 
     Button buttonSignOut;
     Button buttonNewNote;
+    Button buttonCoupon;
     ListView lvNotes;
+    EditText etCoupon;
 
     /**
      * OnCreate() method that calls the showResult(), the buttonNewNote(), and the buttonSignOut() methods.
@@ -39,6 +43,7 @@ public class FinalActivity extends AppCompatActivity {
         showResult();
         buttonNewNote();
         buttonSignOut();
+        buttonCoupon();
     }
 
     /**
@@ -83,6 +88,21 @@ public class FinalActivity extends AppCompatActivity {
         buttonNewNote.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 finish();
+            }
+        });
+    }
+
+    private void buttonCoupon() {
+        etCoupon = (EditText) findViewById(R.id.editTextCoupon);
+        buttonCoupon = (Button) findViewById(R.id.buttonCoupon);
+
+        String couponLocation = etCoupon.getText().toString();
+        buttonNewNote.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String url = "http://www.groupon.com";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
             }
         });
     }
