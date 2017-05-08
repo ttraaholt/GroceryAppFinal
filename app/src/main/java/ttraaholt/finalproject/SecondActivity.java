@@ -66,7 +66,13 @@ public class SecondActivity extends AppCompatActivity {
         //button onclick listener for the login button. Calls the signIn() method and converts the editText widgets to strings.
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                signIn(editTextEmail.getText().toString(), editTextPassword.getText().toString());
+                if (editTextEmail == null || editTextEmail.equals("")){
+                    Toast.makeText(SecondActivity.this, "You did not enter a username", Toast.LENGTH_SHORT).show();
+                } else if (editTextPassword == null || editTextPassword.equals("")){
+                    Toast.makeText(SecondActivity.this, "You did not enter a password", Toast.LENGTH_SHORT).show();
+                } else {
+                    signIn(editTextEmail.getText().toString(), editTextPassword.getText().toString());
+                }
             }
         });
 
@@ -74,7 +80,13 @@ public class SecondActivity extends AppCompatActivity {
         //gets the editTextEmail and converts it to a string, and gets the editTextPassword and converts it to a string.
         buttonCreateUser.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                createAccount(editTextEmail.getText().toString(), editTextPassword.getText().toString());
+                if (editTextEmail == null || editTextEmail.equals("")){
+                    Toast.makeText(SecondActivity.this, "You did not enter a username", Toast.LENGTH_SHORT).show();
+                } else if (editTextPassword == null || editTextPassword.equals("")){
+                    Toast.makeText(SecondActivity.this, "You did not enter a password", Toast.LENGTH_SHORT).show();
+                } else {
+                    createAccount(editTextEmail.getText().toString(), editTextPassword.getText().toString());
+                }
             }
         });
 
