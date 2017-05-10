@@ -26,18 +26,19 @@
             tools:layout_editor_absoluteY="16dp" />
 
         <ListView
+            android:id="@+id/ListViewItems"
             android:layout_width="fill_parent"
             android:layout_height="191dp"
-            android:id="@+id/ListViewNote"
             android:clickable="false"
             android:drawSelectorOnTop="false" />
 
 
         <Button
-            android:id="@+id/buttonNewNote"
+            android:id="@+id/buttonNewItem"
             android:layout_width="127dp"
             android:layout_height="wrap_content"
-            android:text="@string/new_note" />
+            android:text="new item"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/buttonSignOut"
@@ -46,15 +47,8 @@
             android:text="Sign Out"
             tools:ignore="HardcodedText" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editTextCoupon" />
-
         <Button
-            android:text="Check for coupons"
+            android:text="@string/check_for_coupons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttonCoupon" />
