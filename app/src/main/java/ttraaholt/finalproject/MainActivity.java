@@ -24,20 +24,20 @@ import java.util.List;
  * @since   5/7/2017
  */
 
-//This class is mainly for redirecting to separate activities, as well as the creating a note section.
+//This class is mainly for redirecting to separate activities, as well as the creating an item section.
 public class MainActivity extends AppCompatActivity {
 
-    EditText etFirstNote;
+    EditText etItem;
     Button buttonSubmit;
     Button buttonSignOut;
-    Spinner spinnerDay;
-    private List<String> noteList;
+    Spinner spinnerDepartment;
+    private List<String> ItemList;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     /**
-     * OnCreate() method that retrieves the spinnerDay and editTextFirstNote widget.
+     * OnCreate() method that retrieves the spinnerDepartment and editTextItem widget.
      * Next, it calls the userAuthentication(), the buttonSubmit(), and the buttonSignOut() methods.
      */
     @Override
@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        spinnerDay = (Spinner) findViewById(R.id.spinnerDay);
-        etFirstNote = (EditText) findViewById(R.id.editTextNote);
+        spinnerDepartment = (Spinner) findViewById(R.id.spinnerDepartment);
+        etItem = (EditText) findViewById(R.id.editTextItem);
 
         userAuthentication();
         buttonSubmit();
@@ -78,10 +78,10 @@ public class MainActivity extends AppCompatActivity {
     }
     /**
      * method for the button submit, that takes the information from the form and sends them to a new activity.
-     * param spinDay This is the first paramter to addNum method
-     * param firstNote This is the second parameter to addNum method
-     * param noteList This is the list array created for the notes and days
-     * @return the intent with the noteList.
+     * param spinDepartment This is the first paramter to addNum method
+     * param item This is the second parameter to addNum method
+     * param itemList This is the list array created for the items and departments.
+     * return the intent with the noteList.
      */
     private void buttonSubmit() {
         //declare the button
@@ -89,20 +89,20 @@ public class MainActivity extends AppCompatActivity {
         //create a new listener that retrieves the data and converts them to strings.
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                String spinDay = spinnerDay.getSelectedItem().toString();
-                String firstNote = etFirstNote.getText().toString();
-                //new array list called noteList. This list ads the spinDay and the firstNote variables.
-                List<String> noteList = new ArrayList<String>();
-                noteList.add(spinDay);
-                noteList.add(firstNote);
-                //if the firstNote variable is empty, pop up a toast message.
-                if (firstNote.matches("")) {
-                    Toast.makeText(MainActivity.this, "You did not enter a note", Toast.LENGTH_SHORT).show();
-                //If firstNote is not empty, create a new intent and pass the noteList array through.
+                String spinDepartment = spinnerDepartment.getSelectedItem().toString();
+                String item = etItem.getText().toString();
+                //new array list called itemList. This list ads the spinDepartment and the item variables.
+                List<String> ItemList = new ArrayList<String>();
+                ItemList.add(spinDepartment);
+                ItemList.add(item);
+                //if the item variable is empty, pop up a toast message.
+                if (item.matches("")) {
+                    Toast.makeText(MainActivity.this, "You did not enter an item", Toast.LENGTH_SHORT).show();
+                //If item is not empty, create a new intent and pass the itemList array through.
                 } else {
                     Intent Intent = new Intent(MainActivity.this, FinalActivity.class);
-                    //Attribute the noteList array.
-                    Intent.putStringArrayListExtra("noteList", (ArrayList<String>) noteList);
+                    //Attribute the itemList array.
+                    Intent.putStringArrayListExtra("ItemList", (ArrayList<String>) ItemList);
                     //Start the Intent
                     startActivity(Intent);
                 }
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * method for the button sign out, which calls the signOut() method.
-     * @return the signOut() method.
+     * return the signOut() method.
      */
     private void buttonSignOut() {
         buttonSignOut = (Button) findViewById(R.id.buttonSignOut);
@@ -141,6 +141,13 @@ public class MainActivity extends AppCompatActivity {
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }
+    }
+
+    @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        super.onResume();
+        //Refresh your stuff here
     }
 
     /**
