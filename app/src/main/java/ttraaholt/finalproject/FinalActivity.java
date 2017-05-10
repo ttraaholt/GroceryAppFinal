@@ -1,7 +1,9 @@
 package ttraaholt.finalproject;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.os.IResultReceiver;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,13 +30,12 @@ import java.util.List;
 public class FinalActivity extends AppCompatActivity {
 
     Button buttonSignOut;
-    Button buttonNewNote;
+    Button buttonNewItem;
     Button buttonCoupon;
-    ListView lvNotes;
-    EditText etCoupon;
+    ListView lvItems;
 
     /**
-     * OnCreate() method that calls the showResult(), the buttonNewNote(), and the buttonSignOut() methods.
+     * OnCreate() method that calls the showResult(), the buttonNewItem(), the buttonSignOut() method, and the buttonCoupon() method.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,29 +43,29 @@ public class FinalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_final);
 
         showResult();
-        buttonNewNote();
+        ButtonNewItem();
         buttonSignOut();
         buttonCoupon();
     }
 
     /**
-     * showResult() method that ties the list view to the variable and retrieves the information from the noteList in the Main Activity
-     * Next, it creates a new array adapter and sets the lvNotes variable to the adapter
+     * showResult() method that ties the list view to the variable and retrieves the information from the itemList in the Main Activity
+     * Next, it creates a new array adapter and sets the lvItems variable to the adapter
      */
     private void showResult() {
 
-        lvNotes = (ListView) findViewById(R.id.ListViewNote);
-        //Stores the noteList from MainActivity to a new noteList that is an Array List.
-        ArrayList<String> noteList = getIntent().getStringArrayListExtra("noteList");
-
-        //Creates a new array adapter with the noteList
+        lvItems = (ListView) findViewById(R.id.ListViewItems);
+        //Stores the noteList from MainActivity to a new itemList that is an Array List.
+        ArrayList<String> ItemList = getIntent().getStringArrayListExtra("ItemList");
+        //Creates a new array adapter with the itemList
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
-                noteList );
+                ItemList );
 
         //ties the list view and the array adapter with the list together.
-        lvNotes.setAdapter(arrayAdapter);
+        lvItems.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged();
 
     }
 
@@ -80,24 +82,24 @@ public class FinalActivity extends AppCompatActivity {
         });
     }
     /**
-     * method for the button new Note. It returns the user to the Main Activity.
-     * when finish() is called, the user is sent back to the form.
+     * method for the button new Item. It returns the user to the Main Activity.
+     * when startActivity is called, the user is sent back to the form.
      */
-    private void buttonNewNote() {
-        buttonNewNote = (Button) findViewById(R.id.buttonNewNote);
-        buttonNewNote.setOnClickListener(new View.OnClickListener() {
+    private void ButtonNewItem() {
+        buttonNewItem = (Button) findViewById(R.id.buttonNewItem);
+        buttonNewItem.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                finish();
+                startActivity(new Intent(FinalActivity.this, MainActivity.class));
             }
         });
     }
-
+    /**
+     * method for the coupon intent. It opens the browser for groupon.com.
+     */
     private void buttonCoupon() {
-        etCoupon = (EditText) findViewById(R.id.editTextCoupon);
         buttonCoupon = (Button) findViewById(R.id.buttonCoupon);
 
-        String couponLocation = etCoupon.getText().toString();
-        buttonNewNote.setOnClickListener(new View.OnClickListener() {
+        buttonCoupon.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String url = "http://www.groupon.com";
                 Intent i = new Intent(Intent.ACTION_VIEW);
