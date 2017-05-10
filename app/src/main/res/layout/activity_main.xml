@@ -7,29 +7,30 @@
     tools:context="ttraaholt.finalproject.MainActivity">
 
     <TextView
-        android:id="@+id/tvFirstNote"
+        android:id="@+id/textViewItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/add_an_item_on_each_line"
+        android:layout_below="@+id/spinnerDepartment"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="52dp"
-        android:text="@string/note_1" />
+        android:layout_marginTop="17dp" />
 
     <EditText
-        android:id="@+id/editTextNote"
+        android:id="@+id/editTextItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_below="@+id/tvFirstNote"
-        android:layout_alignParentStart="true"
         tools:ignore="LabelFor"
-        android:inputType="" />
+        android:inputType=""
+        android:layout_below="@+id/textViewItem"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
+        android:text="Add Item"
+        tools:ignore="HardcodedText"
         android:layout_alignBaseline="@+id/buttonSignOut"
         android:layout_alignBottom="@+id/buttonSignOut"
         android:layout_alignParentStart="true" />
@@ -40,34 +41,35 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="@string/create_a_daily_note_below"
+        android:text="@string/add_an_item_to_the_grocery_list"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textViewDay"
+        android:id="@+id/textViewDepartment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/day_of_the_week"
-        android:layout_below="@+id/editTextNote"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="29dp" />
+        android:layout_marginTop="19dp"
+        android:text="@string/grocery_store_department"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_alignParentStart="true" />
 
     <Spinner
-        android:id="@+id/spinnerDay"
-        android:layout_width="match_parent"
+        android:id="@+id/spinnerDepartment"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/dayOfWeek"
-        android:layout_below="@+id/textViewDay"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textViewDepartment"
+        android:entries="@array/department"
+        android:layout_alignEnd="@+id/textViewDepartment" />
 
     <Button
         android:id="@+id/buttonSignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_out"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/textViewDay"
-        android:layout_marginStart="12dp" />
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/editTextItem"
+        android:layout_alignEnd="@+id/editTextItem" />
 </RelativeLayout>
